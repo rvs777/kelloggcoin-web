@@ -23,15 +23,20 @@ transactions = Transaction.all
 <!-- Step 2: Calculate and display the balances -->
 
 <%  users = User.all  %>
-
+Expected balances:
 <ol>
+
   <% for user in users %>
     <li> 
-        balance1 = balance1 +         
+    <%  bals1 = Transaction.where({to_user_id:user.id }).sum(:amount)
+        bals2 = Transaction.where({from_user_id:user.id }).sum(:amount)
+        bals = bals1 - bals2
+      %>
+    Balance for <%= user.name%> : <%=bals %> KC         
             
     </li>
   <% end %>
-  Balance for <%=  user.name%>: KC
+  
 </ol>
 
 
