@@ -2,7 +2,38 @@
 
 <!-- Step 1: List all transaction, starting with the ICO -->
 
+<% 
+
+transactions = Transaction.all
+
+%>
+
+<ol>
+  <% for transact in transactions %>
+    <li> 
+    <% if(transact.from_user_id) %>
+            <%= transact.amount %>KC from <%=transact.from_user.name%> to <%=transact.to_user.name%>
+    <% elsif %>
+            Initial coin offering: <%= transact.amount %>KC to <%=transact.to_user.name%>
+    <% end %>
+    </li>
+  <% end %>
+</ol>
+
 <!-- Step 2: Calculate and display the balances -->
+
+<%  users = User.all  %>
+
+<ol>
+  <% for user in users %>
+    <li> 
+        balance1 = balance1 +         
+            
+    </li>
+  <% end %>
+  Balance for <%=  user.name%>: KC
+</ol>
+
 
 <!-- 
 Expected balances:
